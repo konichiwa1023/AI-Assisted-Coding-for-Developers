@@ -1,0 +1,35 @@
+def calc_price(base_price, is_peak, discount_ratio):
+    """
+    Calculate final price based on the peak status and discount ratio.
+
+    During peak hours (7–10 AM, 5–8 PM), no discounts apply.
+    During off-peak hours, apply dynamic pricing using a discount_ratio (0–1),
+    where the maximum discount is 40%.
+
+    Parameters:
+    base_price (float): The original price without any discounts.
+    is_peak (bool): A flag indicating whether it's peak hours.
+    discount_ratio (float): Ratio for off-peak discount, should be between 0 and 1.
+
+    Returns:
+    float: The final price after considering peak status and discount ratio.
+
+    Raises:
+    ValueError: If base_price is not a positive number or discount_ratio is not between 0 and 1.
+    TypeError: If base_price or discount_ratio is not a number, or is_peak is not a boolean.
+    """
+
+    # Input validation
+    if type(base_price) not in [int, float] or base_price <= 0:
+        raise ValueError("base_price should be a positive number.")
+    if type(is_peak) != bool:
+        raise TypeError("is_peak should be a boolean.")
+    if type(discount_ratio) not in [int, float] or not 0 <= discount_ratio <= 1:
+        raise ValueError("discount_ratio should be a number between 0 and 1.")
+
+    # Final price calculation
+    if is_peak:
+        return base_price
+    else:
+        maximum_discount = 0.4
+        return base_price * (1 - maximum_discount * discount_ratio)
