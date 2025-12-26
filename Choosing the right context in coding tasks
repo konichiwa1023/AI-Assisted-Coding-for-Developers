@@ -1,0 +1,8 @@
+def add_grade(student_id, new_grade):
+    student = get_student(student_id)
+    if student is not None:
+        student["grades"].append(new_grade)
+        new_average = calculate_average(student["grades"])
+        return student, new_average
+    else:
+        return None
