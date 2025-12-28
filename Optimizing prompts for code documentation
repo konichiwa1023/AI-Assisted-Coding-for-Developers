@@ -1,0 +1,17 @@
+def calculate_interest(balance, rate, years):
+  """
+  Given a balance, interest rate, and number of years, calculate the final amount.
+
+  Args:
+    balance (float): The initial amount of money before interest is applied.
+    rate (float): The annual interest rate as a decimal (e.g. 0.05 for 5% per year).
+    years (int): The number of years the interest is applied.
+
+  Returns:
+    float: The new balance after applying the interest rate for the given years.
+
+  Example:
+    >>> calculate_interest(200, 0.05, 2)
+    220.0
+  """
+  return balance * (1 + rate) ** years
